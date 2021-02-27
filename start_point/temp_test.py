@@ -46,16 +46,26 @@ pet_shop = {
 
 
 
-def get_pets_by_breed(list, breed_name):
+# def get_pets_by_breed(list, breed_name):
 
-    pets_by_breed = []
+#     pets_by_breed = []
 
+#     for pet in list["pets"]:
+#         if list["pets"][0]["breed"] == breed_name:
+#             pets_by_breed.append(1)
+#     return pets_by_breed
+#     print(pets_by_breed)
+
+# get_pets_by_breed(pet_shop, "Husky")
+
+# print (pet_shop["pets"][5])
+
+def remove_pet_by_name(list, pet_name):
+    pet_index = None 
     for pet in list["pets"]:
-        if list["pets"][0]["breed"] == breed_name:
-            pets_by_breed.append(1)
-    return pets_by_breed
-    print(pets_by_breed)
+        if pet["name"] == pet_name:
+            pet_index = list["pets"].index(pet)
+            
+    print(pet_index)    
 
-get_pets_by_breed(pet_shop, "Husky")
-
-print (pet_shop["pets"][5])
+remove_pet_by_name(pet_shop, "Arthur")
