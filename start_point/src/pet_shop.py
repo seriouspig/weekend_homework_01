@@ -73,4 +73,30 @@ def get_customer_pet_count(customers):
 def add_pet_to_customer (customer, new_pet):
     customer["pets"].append(new_pet)
 
+# --- OPTIONAL ---
 
+# Check if customer can afford a pet - has enough funds
+def customer_can_afford_pet(customer, new_pet):
+    can_buy_pet = None
+    if customer["cash"] >= new_pet["price"]:    
+        return True
+    else:
+        return False
+
+# Check if customer can't afford a pet - has not enough funds
+
+
+# Check if customer can afford a pet - has enough funds
+
+
+# These are 'integration' tests so we want multiple asserts.
+# If one fails the entire test should fail
+#
+
+# Sell pet to customer - pet found
+def sell_pet_to_customer(pet_shop, pet, customer ):
+    if pet != None and customer_can_afford_pet(customer, pet):
+        add_pet_to_customer(customer, pet)
+        pet_shop["admin"]["pets_sold"] += 1
+        customer["cash"] -= pet["price"]
+        pet_shop["admin"]["total_cash"] += pet["price"]
