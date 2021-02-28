@@ -4,8 +4,6 @@
 def get_pet_shop_name(list):
     return list["name"]
 
-
-
 # Total cash
 def get_total_cash(list):
     return list["admin"]["total_cash"]
@@ -13,7 +11,6 @@ def get_total_cash(list):
 # Add or remove cash
 def add_or_remove_cash(list, add_amount):
     list["admin"]["total_cash"] += add_amount
-
 
 # Pets sold
 def get_pets_sold(list):
@@ -76,6 +73,9 @@ def add_pet_to_customer (customer, new_pet):
 # --- OPTIONAL ---
 
 # Check if customer can afford a pet - has enough funds
+# Check if customer can't afford a pet - has not enough funds
+# Check if customer can afford a pet - has enough funds
+
 def customer_can_afford_pet(customer, new_pet):
     can_buy_pet = None
     if customer["cash"] >= new_pet["price"]:    
@@ -83,17 +83,13 @@ def customer_can_afford_pet(customer, new_pet):
     else:
         return False
 
-# Check if customer can't afford a pet - has not enough funds
-
-
-# Check if customer can afford a pet - has enough funds
-
-
 # These are 'integration' tests so we want multiple asserts.
 # If one fails the entire test should fail
 #
-
 # Sell pet to customer - pet found
+# Sell pet to customer - pet not found
+# Sell pet to customer - insuficient funds
+
 def sell_pet_to_customer(pet_shop, pet, customer ):
     if pet != None and customer_can_afford_pet(customer, pet):
         add_pet_to_customer(customer, pet)
